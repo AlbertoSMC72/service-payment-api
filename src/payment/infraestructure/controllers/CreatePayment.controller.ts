@@ -5,7 +5,6 @@ export class CreatePaymentController {
   constructor(private readonly createPaymentService: CreatePaymentService) {}
   async run(req: Request, res: Response) {
     try {
-      console.log("paso")
       const order = req.body;
       if (order === null) res.status(404).send("not found");
       await this.createPaymentService.run(order);

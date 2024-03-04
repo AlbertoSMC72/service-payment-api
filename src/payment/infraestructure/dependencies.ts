@@ -5,13 +5,13 @@ import { SocketIOPort } from "../../shared/socket/infraestructure/ports/SocketIO
 import { SendDataService } from "../../shared/socket/application/services/sendData.service";
 import { CreatePaymentController } from "./controllers/CreatePayment.controller";
 
-const socketIoPort = new SocketIOPort("http://52.72.28.83:5000");
+const socketIoPort = new SocketIOPort("http://localhost:4000");
 const amqplLib = new AmqpLibPort("amqp://34.193.221.88");
 
 const sendMessageService = new SendMessageService(amqplLib);
 const sendDataService = new SendDataService(socketIoPort)
 
- const createPaymentService = new CreatePaymentService(
+const createPaymentService = new CreatePaymentService(
   sendMessageService,
   sendDataService
 );
